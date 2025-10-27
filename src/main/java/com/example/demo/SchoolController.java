@@ -17,17 +17,29 @@ public class SchoolController {
     }
 
     @PostMapping("/schools")
-    public School create(
-            @RequestBody School school
+    public SchoolDto create(
+            @RequestBody SchoolDto dto
     ) {
-        return schoolRepository.save(school);
+
+        var school = toSchool(dto);
+        schoolRepository.save(school);
+        return dto;
     }
 
 
+    public School toSchool(SchoolDto dto) {
+        return new School(dto.name());
+    }
+
+
+    private SchoolDto toSchoolDto(School school){
+        return new SchoolDto(school.getName());
+    }
+
     @GetMapping("/schools")
-    public List<School> findAll(
+    public List<SchoolDto> findAll(
     ) {
-        return schoolRepository.findAll();
+        return schoolRepository.findAll().stream().map(this::toSchoolDto).toList();
     }
 
 }
