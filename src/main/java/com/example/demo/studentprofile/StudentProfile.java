@@ -1,6 +1,7 @@
-package com.example.demo;
+package com.example.demo.studentprofile;
 
 
+import com.example.demo.student.Student;
 import jakarta.persistence.*;
 
 @Entity
@@ -27,7 +28,7 @@ public class StudentProfile {
     @JoinColumn(
             name = "student_id"
     )
-    private  Student student;
+    private Student student;
 
 
     public StudentProfile() {

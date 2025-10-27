@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.student;
 
 public record StudentDto(
         String firstName,String lastName,String email,Integer schoolId) {
