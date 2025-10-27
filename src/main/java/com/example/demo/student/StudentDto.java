@@ -1,7 +1,16 @@
 package com.example.demo.student;
 
+import jakarta.validation.constraints.NotEmpty;
+
 public record StudentDto(
-        String firstName,String lastName,String email,Integer schoolId) {
+
+        @NotEmpty(message = "firstname must not be empty")
+        String firstName,
+        @NotEmpty(message = "firstname must not be empty")
+        String lastName,
+        String email,
+        Integer schoolId
+) {
 
 
 
